@@ -1,0 +1,38 @@
+.ui-Payment
+  .span6(style='float: none; margin-left: auto; margin-right: auto;')
+    div
+      form.form-horizontal.phm(action='billing', method='post', accept-charset='utf-8')
+        .form-group
+          label Card Holder's Name
+          input.form-control(type='text', required='required', data-bind='value: card.name')
+
+        .form-group
+          label Card Number
+          input.form-control(type='text', required='required', data-bind='value: card.number')
+
+        .form-group
+          label Card Expiration Date
+          .row
+            .col-sm-6.col-xs-6
+              select.inline.form-control(data-bind='options:monthOptions, value: card.month')
+            .col-sm-6.col-xs-6
+              select.inline.form-control(data-bind='value:card.year')
+                option 2015
+                option 2016
+                option 2017
+                option 2018
+                option 2019
+                option 2020
+                option 2021
+                option 2022
+                option 2023
+                option 2024
+                option 2025
+
+        .form-group
+          label 3-digit CVC
+          input.form-control(type='text', required='required', data-bind='value: card.cvc')
+    h3(style='float:left') Total
+    h3(style='float:right') $<span data-bind='text: amount'/>.00
+    .clearfix
+

@@ -1,0 +1,15 @@
+.ui-Item
+  .item
+    div
+      .thumbnail
+        a.get-item(href='', data-bind='click: contribute')
+          img(data-bind='attr: {src: src}')
+    .item-descr
+      a.get-item(href='', data-bind='text: title, click: contribute')
+    .item-price $<span data-bind='text: price'/>.00
+    .item-progress <span data-bind='text: funded'/> funded
+    .clearfix
+    .progress(style='height:10px')
+      .progress-bar.progress-bar-success.progress-bar-striped(role='progressbar', data-bind='style:{width: funded}')
+    .btn.btn-sm.btn-primary(style='float:right', data-bind='click: contribute') Contribute
+

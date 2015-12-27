@@ -1,0 +1,38 @@
+.ui-Gift
+  form.form-horizontal(role='form')
+  .form-group
+    label.control-label From:
+    input.form-control.plm(type='text', placeholder='Your Name', data-bind='value: gift.from')
+  .form-group
+    label.control-label Email:
+    input.form-control.plm(type='text', placeholder='Your Name', data-bind='value: gift.email')
+  .form-group
+    label.control-label Choose Amount
+  .form-group.pll
+    .radio
+      label
+        input(type='radio', name='amounts', value='50', data-bind='checked: gift.selected')
+        | $50
+    .radio
+      label
+        input(type='radio', name='amounts', value='100', data-bind='checked: gift.selected')
+        | $100
+    .radio
+      label
+        input(type='radio', name='amounts', value='150', data-bind='checked: gift.selected')
+        | $150
+    .radio
+      label
+        input(type='radio', name='amounts', value='200', data-bind='checked: gift.selected')
+        | $200
+    .radio
+      label
+        input(type='radio', name='amounts', value='full', data-bind='checked: gift.selected')
+        | Remaining Amount ($<span data-bind='text: gift.item.remaining'/>.00)
+    .radio
+      label
+        input(type='radio', name='amounts', value='custom', data-bind='checked: gift.selected')
+        | Custom
+    .form-group.mll(data-bind='visible: gift.selected()=="custom"', style='margin-bottom: 40px; margin-left:10px')
+        input.form-control(type='text', placeholder='Enter a custom amount', data-bind='value: gift.amount')
+
