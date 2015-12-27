@@ -1,4 +1,4 @@
 {
-  "css":["www"],
+  "css":["main","www"],
   "js":["3rd","www"]
 }

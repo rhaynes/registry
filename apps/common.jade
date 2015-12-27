@@ -1,17 +1,3 @@
-mixin item(name,cost,src)
-  .item
-    div
-      .thumbnail
-        a.get-item(href='')
-          img(src='#{src}')
-    .item-descr
-      a.get-item(href='') #{name}
-    .item-price #{cost}
-    .item-progress 65% funded
-    .clearfix
-    .progress(style='height:10px')
-      .progress-bar.progress-bar-success.progress-bar-striped(role='progressbar', style='width: 70%')
-    .btn.btn-sm.btn-primary(style='float:right') Contribute
 doctype html
 html
   head
@@ -21,7 +7,7 @@ html
     link(href='//fonts.googleapis.com/css?family=Raleway:400,300,200,700&subset=latin,latin-ext', rel='stylesheet', type='text/css')
     link(href='//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic&subset=latin,latin-ext', rel='stylesheet', type='text/css')
     link(href='//cdn1.editmysite.com/editor/fonts/Freebooter/font.css?2', rel='stylesheet', type='text/css')
-    link(href='/css/style.css', rel='stylesheet', type='text/css')
+    !=styles
     link(rel="icon", type="image/png", href="/favicon.png")
   body
     .site-title Sarah &nbsp;& Ryan's Honeymoon  &nbsp;Registry
@@ -38,25 +24,8 @@ html
             p.fwb Thank you so much for your help in making it possible for us to go on our dream trip!
             p For our honeymoon, are planning a diving trip to the island of Bonaire, French for “good air.” Bonaire is a small island in the Dutch Caribbean where locals speaking Dutch and English. Bonaire is known as the best island in the Caribbean for scuba diving, and we plan to take advantage of this, by doing a PADI certification course, and exploring some of the many beautiful shore dives.  We are going to stay at Harbor Beach Club Resort, which is touted as the best place to stay on the island and is located in the capital, Kralendijk.  The resort offers lots of special add-ons for honeymooners, which we have included in our registry below.
             p.fwb Allons-y! (French for “Let’s Go!”)
-    .items.flex-center
-      +item('Flights','$1200.00','http://www.caribbeannewsdigital.com/en/sites/default/files/en/imagenes_noticias/inselair.jpg')
-      +item('Hotel','$2400.00','http://images.trvl-media.com/hotels/10000000/9230000/9227400/9227396/9227396_45_z.jpg')
-      +item('Diving Courses','$850.00','https://www.bookyourdive.com/uploads/listing/photo/image/5232fe5903b1db67e8000397/full_phoca_thumb_l_Diving_Belmar_Oceanfront_Apartments_House_Reef.jpg')
-      +item('Fluorescence Night Diving','$70.00','http://www.diverwire.com/wp-content/uploads/2012/01/UV-picture.jpg')
-      +item('Windsurfing Lessons','$160.00','http://www.delmarvaboardsportadventures.com/wp-content/uploads/2012/11/phpBfoAAVAM.jpg')
-      +item('Romantic Torch-lit Dinner for Two','$230.00','http://media-cdn.tripadvisor.com/media/photo-s/06/b1/85/6d/harbour-village-beach.jpg')
-      +item('Sailing to Klein Bonaire','$150.00','http://www.compassbonaire.com/wp-content/uploads/2012/03/snorkel-and-sail-trip-bonaire.jpg')
-      +item('Hiking in Washington-Slagbaai National park','$50.00','http://www.bonaireinsider.com/images/20120208-Hiking_Lagadishi1.jpg')
-      +item('Sea Kayaking through Mangroves','$90.00','http://www.mangrovesurfapartment.com/images/bonaire/mangrove-information.jpg')
-      +item('Visit to Flamingo Sanctuary','$50.00','https://thebonaireblogger.files.wordpress.com/2012/03/00-salina-mathijs1.jpg')
-      +item('Cactus Drinks at Cadushy Distillary','$50.00','http://cdn2.bigcommerce.com/n-63unu/gbih1x/product_images/uploaded_images/cadushy-600.gif?t=1411075292')
-      +item('Go Pro Camera','$400.00','http://demandware.edgesuite.net/sits_pod15/dw/image/v2/AASJ_PRD/on/demandware.static/Sites-GoPro-Site/Sites-gopro-products/default/dw926a3f1e/hi-res/CHDHY-401_main1.jpg')
-      +item('Wild Donkey Sanctuary','$20.00','http://www.aluxurytravelblog.com/wp-content/uploads/2014/10/Bonaire-donkeys_48503284.jpg')
-      +item('TUMI suitecase','$400.00','http://mikeshouts.com/wp-content/uploads/2013/02/TUMI-Tegra-Lite-Continental-Carry-on-Luggage-Indigo-1.jpg')
+    .items.flex-center(style='padding-bottom: 40px')
 
-    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')
-    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js')
-    script(src='/js/allonsy.js')
     !=scripts
     !=exportsScript
     !=pageScript
