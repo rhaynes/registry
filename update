@@ -1,0 +1,1 @@
+scp views/index.jade ubuntu@server.sarahandryanallonsy.com:/www/registry/views/
