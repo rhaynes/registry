@@ -42,8 +42,15 @@ Item.prototype.contribute = function() {
         return;
       }
 
-      if (!gift.getAmount()) {
+      var amount = gift.getAmount();
+      if (!amount) {
         fs.alert('Please choose a gift amount');
+        setTimeout(abort,0);
+        return;
+      }
+
+      if (!/^\d+$/.test(amount)) {
+        fs.alert('Please use whole numbers only');
         setTimeout(abort,0);
         return;
       }
