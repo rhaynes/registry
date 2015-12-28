@@ -36,6 +36,12 @@ Item.prototype.contribute = function() {
         return;
       }
 
+      if (!gift.email()) {
+        fs.alert('Please enter your email');
+        setTimeout(abort,0);
+        return;
+      }
+
       if (!gift.getAmount()) {
         fs.alert('Please choose a gift amount');
         setTimeout(abort,0);

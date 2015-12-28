@@ -1,7 +1,7 @@
 
 # node_modules folders
 node_modules/*
-!/node_modules/osmosis/
+!/node_modules/registry/
 
 public/images/*
 includes/min/*
