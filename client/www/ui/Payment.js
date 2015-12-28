@@ -73,7 +73,8 @@ Payment.prototype.submit = function(done,abort) {
       });
 
     } else {
-      if (onFail) onFail(response.error);
+      fs.alert(response.error.message);
+      abort();
       console.log("error: ",response);
       //highlight box or do something for the user here
     }

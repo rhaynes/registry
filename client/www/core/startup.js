@@ -38,9 +38,12 @@ exports.alwaysRun = function() {
 
 exports.run = function() {
   var items = fs.transpose(itemData);
-  for (var k in items) {
-    fs.mixAppend($('.items'),'ui/Item',{
-      item: items[k],
+  var groups = _.groupBy(items,function(item) { return item.category });
+
+  for (var k in groups) {
+    fs.mixAppend($('.item-groups'),'ui/ItemGroup',{
+      name: k,
+      items: groups[k],
     })
   }
 }

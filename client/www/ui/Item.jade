@@ -5,11 +5,11 @@
         a.get-item(href='', data-bind='click: contribute')
           img(data-bind='attr: {src: src}')
     .item-descr
-      a.get-item(href='', data-bind='text: title, click: contribute')
+      a.get-item(href='', data-bind='click: contribute') <span data-bind='text: title'/>
     .item-price $<span data-bind='text: price'/>.00
     .item-progress <span data-bind='text: funded'/> funded
     .clearfix
     .progress(style='height:10px')
-      .progress-bar.progress-bar-success.progress-bar-striped(role='progressbar', data-bind='style:{width: funded}')
-    .btn.btn-sm.btn-primary(style='float:right', data-bind='click: contribute') Contribute
+      .progress-bar.progress-bar-primary.progress-bar-striped(role='progressbar', data-bind='style:{width: funded}')
+    button.btn.btn-sm.btn-primary(style='float:right', data-bind='click: contribute, enable: remaining()>0, css: {gold: remaining()==0}') <span data-bind='visible: remaining()>0'>Contribute $<span data-bind="text: suggested"/></span><span data-bind='visible: remaining()<=0'>Funded</span>
 

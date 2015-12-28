@@ -35,6 +35,8 @@ exports.main = function($P) {
   // Execute necessary logic to charge the credit card
   paymentManager.charge($P,$P.args.gift.amount*100,function() {
 
+    db.items.update($P.args.gift.itemID,$P.args.gift.amount);
+
     db.contributions.finalize(contribID);
 
   });
