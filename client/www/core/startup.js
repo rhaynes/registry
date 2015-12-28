@@ -14,6 +14,20 @@ function allonsy() {
 }
 
 exports.alwaysRun = function() {
+  // Set handler for internal server errors (HTTP 500)
+  fs.onInternalServerError(function(code,res) {
+    if (res) fs.alert(res.error.msg,'Internal Server Error','danger')
+    else fs.alert(code+' Server error: Please report this as a bug to support@osmosis.org','Error','danger');
+  });
+
+  fs.onRequestError(function(code,res) {
+    fs.alert(res.error.msg,'Oops!','warning');
+  });
+
+  fs.onConnectionError(function(handler) {
+    fs.alert('No internet!','Bad connection','warning');
+  });
+
   // Inject everything exported by common into the global scope
   var common = require('core/common');
   for (var k in common)
