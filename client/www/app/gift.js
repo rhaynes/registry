@@ -7,9 +7,15 @@ function Gift() {
   this.message = ko.observable();
 }
 
+function stripUnits(amount) {
+  if (amount[0] == '$')
+    return amount.slice(1)
+  else return amount;
+}
+
 Gift.prototype.getAmount = function() {
   if (this.selected() == 'custom') {
-    return +this.amount();
+    return +stripUnits(this.amount());
   } else if (this.selected() == 'full') {
     return +this.item.remaining();
   } else return +this.selected();
