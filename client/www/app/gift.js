@@ -9,10 +9,10 @@ function Gift() {
 
 Gift.prototype.getAmount = function() {
   if (this.selected() == 'custom') {
-    return this.amount();
+    return +this.amount();
   } else if (this.selected() == 'full') {
-    return this.item.remaining();
-  } else return this.selected();
+    return +this.item.remaining();
+  } else return +this.selected();
 }
 
 Gift.prototype.setItem = function(item) {
