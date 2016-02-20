@@ -15,6 +15,10 @@
         | $50
     .radio
       label
+        input(type='radio', name='amounts', value='75', data-bind='checked: gift.selected')
+        | $75
+    .radio
+      label
         input(type='radio', name='amounts', value='100', data-bind='checked: gift.selected')
         | $100
     .radio

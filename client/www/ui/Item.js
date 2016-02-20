@@ -19,15 +19,19 @@ function Item(bind,args) {
   });
 
   this.suggested = ko.computed(function() {
-    if (self.remaining() <= 100)
+    if (self.remaining() <= 50)
       return self.remaining()
-    else return 100;
+    else return 50;
   });
+}
+
+Item.prototype.selectAll = function() {
+  gift.setItem(this);
+  this.contribute();
 }
 
 Item.prototype.contribute = function() {
   var self = this;
-  gift.setItem(this);
   dialog('ui/Gift',function(vm,res,done,abort) {
     if (res) {
       if (!gift.from()) {
@@ -75,6 +79,14 @@ Item.prototype.contribute = function() {
       });
     }
   });
+}
+
+Item.prototype.selectContrib = function(value) {
+  var self = this;
+  return function() {
+    gift.setItem(self,value)
+    self.contribute();
+  }
 }
 
 module.exports = Item;
