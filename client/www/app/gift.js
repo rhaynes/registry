@@ -21,11 +21,13 @@ Gift.prototype.getAmount = function() {
   } else return +this.selected();
 }
 
-Gift.prototype.setItem = function(item) {
+Gift.prototype.setItem = function(item,amount) {
   this.item = item;
-  if (item.remaining() <= 100)
-    this.selected('full')
-  else this.selected(100);
+  if (!amount) {
+    if (item.remaining() <= 100 && item.remaining() > 0)
+      this.selected('full')
+    else this.selected(100);
+  } else this.selected(amount);
 }
 
 Gift.prototype.getGift = function() {
